@@ -15,16 +15,12 @@ const Chat = () => {
 
   const { userId } = useParams();
 
-  const { selectedUser } = useChatStore();
-
   return (
     <>
       {isMobile ? (
         <div className="w-full h-screen relative">
           <div
-            className={`h-screen w-screen absolute inset-0 ${
-              userId && "-left-100 -z-10"
-            } border-r-2 border-base-300 bg-base-100 flex flex-col`}
+            className={`h-screen w-screen absolute z-0 border-r-2 border-base-300 bg-base-100 flex flex-col`}
           >
             <UserHeader />
             <div className="px-5 py-5 h-full overflow-y-scroll">
@@ -32,8 +28,8 @@ const Chat = () => {
             </div>
           </div>
           <div
-            className={`h-screen w-screen absolute inset-0 ${
-              !userId && "-right-100 -z-10"
+            className={`h-screen w-screen absolute ${
+              !userId && "hidden z-10"
             } bg-base-200 flex flex-col`}
           >
             <ChatHeader />
@@ -54,7 +50,7 @@ const Chat = () => {
             <div className="h-screen w-full bg-base-200 flex flex-col">
               <ChatHeader />
               <div className="h-full overflow-y-hidden">
-                {selectedUser ? <ChatContainer /> : ""}
+                <ChatContainer />
               </div>
             </div>
           ) : (
