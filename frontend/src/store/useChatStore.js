@@ -4,7 +4,6 @@ import { persist } from "zustand/middleware";
 import { axiosInstance } from "../lib/axios";
 import toast from "react-hot-toast";
 import { useAuthStore } from "./useAuthStore";
-import { io } from "socket.io-client";
 
 export const useChatStore = create(
   persist(
@@ -41,13 +40,25 @@ export const useChatStore = create(
       },
 
       sendMessage: async (messageData) => {
-        const { selectedUser, messages } = get();
+        const { selectedUser } = get();
         try {
+          set((state) => ({
+            messages: [
+              ...state.messages,
+              {
+                receiverId: selectedUser._id,
+                senderId: useAuthStore.getState().authUser._id,
+                text: messageData.text,
+              },
+            ],
+          }));
+
           const res = await axiosInstance.post(
             `/message/send/${selectedUser._id}`,
             messageData
           );
-          set({ messages: [...messages, res.data] });
+
+          console.log(res.data);
         } catch (error) {
           toast.error(error.response.data.message);
         }

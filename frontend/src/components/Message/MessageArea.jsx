@@ -44,9 +44,9 @@ const MessageArea = () => {
 
   return (
     <div className="absolute top-0 w-full h-[calc(100%-5rem)] overflow-y-scroll overflow-x-hidden px-5 sm:px-10 md:px-20 py-5">
-      {messages.map((message) => (
+      {messages.map((message, idx) => (
         <div
-          key={message._id}
+          key={idx}
           className={`chat ${
             message.senderId === authUser._id ? "chat-end" : "chat-start"
           }`}

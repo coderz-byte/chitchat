@@ -12,16 +12,11 @@ const MessageInput = () => {
 
     if (!text.trim()) return;
 
-    try {
-      await sendMessage({
-        text: text.trim(),
-      });
+    sendMessage({
+      text: text.trim(),
+    });
 
-      // Clear form
-      setText("");
-    } catch (error) {
-      console.error("Failed to send message:", error);
-    }
+    setText("");
   };
 
   return (
