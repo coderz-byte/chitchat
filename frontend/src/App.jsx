@@ -33,9 +33,9 @@ const App = () => {
         />
 
         <Route element={<ProtectedRoutes />}>
-          <Route path="/chat/:userId" element={<Chat />} />
           <Route path="/" element={<Navigate to="/chat" replace />} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/chat/:userId" element={<Chat />} />
         </Route>
 
         <Route path="*" element={<PageNotFound />} />

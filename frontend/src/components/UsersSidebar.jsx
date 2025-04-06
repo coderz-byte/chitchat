@@ -46,7 +46,6 @@ const UsersSidebar = () => {
           <div
             key={idx}
             className={`w-full flex items-center gap-2 px-3 ${
-              // user._id === selectedUser?._id
               user._id === userId
                 ? "bg-neutral text-neutral-content hover:bg-neutral-950"
                 : "hover:bg-base-200"
