@@ -41,16 +41,16 @@ const Chat = () => {
   }
 
   return (
-    <div className="w-full h-svh">
+    <div className="w-full h-dvh">
       {!userId ? (
-        <div className="h-svh w-full absolute z-0 bg-base-100 flex flex-col">
+        <div className="h-dvh w-full absolute z-0 bg-base-100 flex flex-col">
           <UserHeader />
           <div className="px-5 py-5 h-full overflow-y-scroll">
             <UsersSidebar />
           </div>
         </div>
       ) : (
-        <div className="h-svh w-full absolute z-0 bg-base-200 flex flex-col">
+        <div className="h-dvh w-full absolute z-0 bg-base-200 flex flex-col">
           <ChatHeader />
           <div className="h-full overflow-y-hidden">
             <ChatContainer />
