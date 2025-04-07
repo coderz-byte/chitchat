@@ -31,7 +31,7 @@ export const signup = async (req, res) => {
 
     setCookies(res, token);
 
-    res.status(201).json(resMessage(true, user));
+    res.status(201).json(resMessage(true, user, token));
   } catch (error) {
     console.log("Error in register route", error.message);
     res.status(500).json(resMessage(false, error.message));
@@ -62,7 +62,7 @@ export const login = async (req, res) => {
 
     setCookies(res, token);
 
-    res.status(200).json(resMessage(true, existUser));
+    res.status(200).json(resMessage(true, existUser, token));
   } catch (error) {
     console.log("Error in login route", error.message);
     res.status(500).json(resMessage(false, error.message));

@@ -3,7 +3,8 @@ import { resMessage } from "../utils/resMessage.js";
 
 export const verifyToken = async (req, res, next) => {
   try {
-    const token = req.cookies.token;
+    const bearerToken = req.headers["authorization"];
+    const token = req.cookies.token || bearerToken?.split(" ")[1];
 
     if (!token) return res.status(401).json(resMessage(false, "Unauthorized"));
 

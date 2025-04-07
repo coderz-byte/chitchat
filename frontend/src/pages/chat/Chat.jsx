@@ -5,7 +5,6 @@ import {
   ChatContainer,
 } from "../../components";
 import { useMediaQuery } from "react-responsive";
-import { useChatStore } from "../../store/useChatStore";
 import { useParams } from "react-router";
 
 const Chat = () => {
