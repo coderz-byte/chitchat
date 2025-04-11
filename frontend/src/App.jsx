@@ -21,7 +21,7 @@ const App = () => {
     );
 
   return (
-    <div className="w-screen h-screen overflow-hidden bg-base-100">
+    <div className="w-screen h-dvh md:h-screen overflow-hidden bg-base-100">
       <Routes>
         <Route
           path="/login"
